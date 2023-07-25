@@ -23,6 +23,7 @@ export default async function handler(
       email: payload.email,
     },
     select: {
+      id: true,
       first_name: true,
       last_name: true,
       phone: true,
@@ -31,5 +32,18 @@ export default async function handler(
     },
   });
 
-  return res.json(user);
+  //console.log(user);
+  if (!user) {
+    return res.status(401).json({
+      errorMessage: "User not found",
+    });
+  }
+
+  return res.json({
+    id: user.id,
+    firstName: user.first_name,
+    lastName: user.last_name,
+    phone: user.phone,
+    city: user.city,
+  });
 }
