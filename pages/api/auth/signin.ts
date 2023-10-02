@@ -66,6 +66,7 @@ export default async function handler(
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
+
     setCookie("jwt", token, { req, res, maxAge: 60 * 6 * 24 });
 
     //console.log("Sign in......");

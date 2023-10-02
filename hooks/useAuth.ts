@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import axios from "axios";
 import { AuthenticationContext } from "@/app/context/AuthContext";
 
-import { getCookie, deleteCookie } from "cookies-next";
+import { deleteCookie } from "cookies-next";
 
 const useAuth = () => {
   const { setAuthState } = useContext(AuthenticationContext);

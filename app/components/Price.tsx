@@ -1,30 +1,29 @@
-import React from 'react'
-import { PRICE } from '@prisma/client'
+import React from "react";
+import { PRICE } from "@prisma/client";
 
-const Price = ({price}:{price:PRICE}) => {
-    const renderPrice=()=>{
-if(price===PRICE.CHEAP){
-    
-  return (
-    <>
-      <span>$$</span> <span className='text-gray-400'>$$</span>
-    </>
-  )
-}else if(price=== PRICE.REGULAR){
-    return (
+const Price = ({ price }: { price: PRICE }) => {
+  const renderPrice = () => {
+    if (price === PRICE.CHEAP) {
+      return (
         <>
-          <span>$$</span> <span className='text-gray-400'>$$</span>
+          <span>$</span> <span className="text-gray-400">$$$</span>
         </>
-      ) 
-}else{
-    return (
+      );
+    } else if (price === PRICE.REGULAR) {
+      return (
         <>
-        <span>$$</span>
+          <span>$$</span> <span className="text-gray-400">$$</span>
         </>
-    )
-}
-}
-return <p className='flex mr-3'>{renderPrice()}</p>
-}
+      );
+    } else {
+      return (
+        <>
+          <span>$$$</span>
+        </>
+      );
+    }
+  };
+  return <p className="flex mr-3">{renderPrice()}</p>;
+};
 
-export default Price
+export default Price;
